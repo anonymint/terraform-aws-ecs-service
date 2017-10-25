@@ -33,7 +33,7 @@ variable "subnet_ids" {
 
 variable "alb_port" {
   description = "Default exposed port of ALB"
-  default = 80
+  default     = 80
 }
 
 #####
