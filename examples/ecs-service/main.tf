@@ -18,31 +18,7 @@ data "template_file" "container_definition" {
 
   vars {
     container_name  = "${var.container_name}"
-    container_image = "${var.container_name}"
+    container_image = "${var.container_image}"
     container_port  = "${var.container_port}"
   }
-}
-
-variable container_name {
-  default = "nginx-task"
-}
-
-variable "container_image" {
-  default = "nginx"
-}
-
-variable "container_port" {
-  default = "80"
-}
-
-output "alb_url" {
-  value = "${module.ecs-service.alb_url}"
-}
-
-output ecs_service_name {
-  value = "${module.ecs-service.ecs_service_name}"
-}
-
-output ecs_task_definition {
-  value = "${module.ecs-service.ecs_task_definition}"
 }

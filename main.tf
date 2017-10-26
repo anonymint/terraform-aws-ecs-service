@@ -20,7 +20,11 @@ resource "aws_ecs_service" "this" {
     container_port   = "${var.container_port}"
   }
 
-  depends_on = ["aws_alb.this"]
+  placement_constraints = "${var.placement_constraints}"
+
+  placement_strategy = "${var.placement_strategies}"
+
+  depends_on = ["aws_alb.this", "aws_ecs_task_definition.this"]
 }
 
 #####

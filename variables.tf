@@ -14,6 +14,27 @@ variable "container_definition" {
   description = "A list of valid container definitions provided as a single valid JSON document."
 }
 
+variable "placement_constraints" {
+  type = "list"
+
+  default = [
+    {
+      type = "distinctInstance"
+    },
+  ]
+}
+
+variable "placement_strategies" {
+  type = "list"
+
+  default = [
+    {
+      type  = "spread"
+      field = "attribute:ecs.availability-zone"
+    },
+  ]
+}
+
 #####
 # ALB related
 #####
